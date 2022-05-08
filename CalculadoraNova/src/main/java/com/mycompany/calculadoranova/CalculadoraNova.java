@@ -6,6 +6,7 @@
 package com.mycompany.calculadoranova;
 
 import java.util.Scanner;
+import com.mycompany.calculadoranova.CalculoSoma;
 
 /**
  *
@@ -13,10 +14,10 @@ import java.util.Scanner;
  */
 public class CalculadoraNova {
 
-    Double num1, num2;
+    CalculoSoma soma = new CalculoSoma();
 
     public static void main(String[] args) {
-        Double res;
+        
         int menu = 5;
         Scanner teclado = new Scanner(System.in);
 
@@ -26,20 +27,21 @@ public class CalculadoraNova {
             menu = teclado.nextInt();
             switch (menu) {
                 case 1:
-                    res = soma();
-                    System.out.println("Resultado:" + res + "\n");
+                    Calculo soma = new CalculoSoma();
+                    FazerCalculo(soma);   
                     break;
+
                 case 2:
-                    res = subtrair();
-                    System.out.println("Resultado:" + res + "\n");
+                    Calculo subtrair = new CalculoSubtrair();
+                    FazerCalculo(subtrair);
                     break;
                 case 3:
-                    res = multiplicar();
-                    System.out.println("Resultado:" + res + "\n");
+                    Calculo multiplicar = new CalculoMultiplicar();
+                    FazerCalculo(multiplicar);
                     break;
                 case 4:
-                    res = dividir();
-                    System.out.println("Resultado:" + res + "\n");
+                    Calculo dividir = new CalculoDivisao();
+                    FazerCalculo(dividir);
                     break;
             }
         } while (menu != 5);
@@ -54,48 +56,13 @@ public class CalculadoraNova {
         System.out.println("(5) Sair");
     }
 
-    public static double soma() {
-        System.out.print("Digite o primeiro numero:");
-        Scanner ler = new Scanner(System.in);
-        Double num1 = ler.nextDouble();
-        System.out.print("Digite o segundo numero:");
-        Scanner ler2 = new Scanner(System.in);
-        Double num2 = ler2.nextDouble();
-
-        return num1 + num2;
+    public static void FazerCalculo(Calculo calculo){
+        double result;
+        
+        result = calculo.calcular();
+        
+        System.out.println("Resultado:" + result + "\n");
+        
     }
-
-    public static double subtrair() {
-        System.out.print("Digite o primeiro numero:");
-        Scanner ler = new Scanner(System.in);
-        Double num1 = ler.nextDouble();
-        System.out.print("Digite o segundo numero:");
-        Scanner ler2 = new Scanner(System.in);
-        Double num2 = ler2.nextDouble();
-
-        return num1 - num2;
-    }
-
-    public static double multiplicar() {
-        System.out.print("Digite o primeiro numero:");
-        Scanner ler = new Scanner(System.in);
-        Double num1 = ler.nextDouble();
-        System.out.print("Digite o segundo numero:");
-        Scanner ler2 = new Scanner(System.in);
-        Double num2 = ler2.nextDouble();
-
-        return num1 * num2;
-    }
-
-    public static double dividir() {
-        System.out.print("Digite o primeiro numero:");
-        Scanner ler = new Scanner(System.in);
-        Double num1 = ler.nextDouble();
-        System.out.print("Digite o segundo numero:");
-        Scanner ler2 = new Scanner(System.in);
-        Double num2 = ler2.nextDouble();
-
-        return num1 / num2;
-    }
-
+    
 }
