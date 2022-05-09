@@ -4,6 +4,8 @@
  */
 package com.mycompany.calculadoranova;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Pancaldi
@@ -11,7 +13,21 @@ package com.mycompany.calculadoranova;
 public class CalculoSubtrair extends Calculo {
     
     @Override
-    public float calcular(float x, float y){
-        return x - y;
+    public float calcular(float[] x){
+        return x[0] - x[1];
+    }
+    
+    @Override
+    public float[] inserirdados(){
+        float[] dado = new float[2];
+        
+        System.out.print("Digite o primeiro numero:");
+        Scanner ler = new Scanner(System.in);
+        dado[0] = ler.nextFloat();
+        System.out.print("Digite o segundo numero:");
+        Scanner ler2 = new Scanner(System.in);
+        dado[1] = ler2.nextFloat();
+    
+        return dado;
     }
 }

@@ -50,15 +50,11 @@ public class CalculadoraNova {
 
     public static void FazerCalculo(Calculo calculo){
         float result;
+        float[] dados;
         
-        System.out.print("Digite o primeiro numero:");
-        Scanner ler = new Scanner(System.in);
-        float num1 = ler.nextFloat();
-        System.out.print("Digite o segundo numero:");
-        Scanner ler2 = new Scanner(System.in);
-        float num2 = ler2.nextFloat();
+        dados = calculo.inserirdados();
         
-        result = calculo.calcular(num1, num2);
+        result = calculo.calcular(dados);
         
         System.out.println("Resultado:" + result + "\n");
         

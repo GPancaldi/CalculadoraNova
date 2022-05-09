@@ -9,5 +9,7 @@ package com.mycompany.calculadoranova;
  */
 public abstract class Calculo {
     
-    public abstract float calcular(float x, float y); 
+    public abstract float calcular(float[] x);
+    
+    public abstract float[] inserirdados();
 }
