@@ -6,8 +6,6 @@
 package com.mycompany.calculadoranova;
 
 import java.util.Scanner;
-import com.mycompany.calculadoranova.CalculoSoma;
-
 /**
  *
  * @author Pancaldi
@@ -18,33 +16,27 @@ public class CalculadoraNova {
 
     public static void main(String[] args) {
         
-        int menu = 5;
+        int opcaoescolhida;
         Scanner teclado = new Scanner(System.in);
 
         do {
             print_menu();
             System.out.print("Digite sua opção: ");
-            menu = teclado.nextInt();
-            switch (menu) {
-                case 1:
-                    Calculo soma = new CalculoSoma();
-                    FazerCalculo(soma);   
-                    break;
-
-                case 2:
-                    Calculo subtrair = new CalculoSubtrair();
-                    FazerCalculo(subtrair);
-                    break;
-                case 3:
-                    Calculo multiplicar = new CalculoMultiplicar();
-                    FazerCalculo(multiplicar);
-                    break;
-                case 4:
-                    Calculo dividir = new CalculoDivisao();
-                    FazerCalculo(dividir);
-                    break;
+            opcaoescolhida = teclado.nextInt();
+            Calculo operacao;
+            
+            operacao = switch (opcaoescolhida) {
+                case 1 -> new CalculoSoma();
+                case 2 -> new CalculoSubtrair();
+                case 3 -> new CalculoMultiplicar();
+                case 4 -> new CalculoDivisao();
+                default -> null;
+            };
+            
+            if(operacao != null){
+                FazerCalculo(operacao);
             }
-        } while (menu != 5);
+        } while (opcaoescolhida != 5);
 
     }
 
@@ -57,9 +49,16 @@ public class CalculadoraNova {
     }
 
     public static void FazerCalculo(Calculo calculo){
-        double result;
+        float result;
         
-        result = calculo.calcular();
+        System.out.print("Digite o primeiro numero:");
+        Scanner ler = new Scanner(System.in);
+        float num1 = ler.nextFloat();
+        System.out.print("Digite o segundo numero:");
+        Scanner ler2 = new Scanner(System.in);
+        float num2 = ler2.nextFloat();
+        
+        result = calculo.calcular(num1, num2);
         
         System.out.println("Resultado:" + result + "\n");
         

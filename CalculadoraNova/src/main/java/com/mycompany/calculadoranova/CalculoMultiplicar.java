@@ -3,23 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.calculadoranova;
-
-import java.util.Scanner;
-
 /**
  *
  * @author Pancaldi
  */
 public class CalculoMultiplicar extends Calculo {
     
-    public double calcular(){
-        System.out.print("Digite o primeiro numero:");
-        Scanner ler = new Scanner(System.in);
-        Double num1 = ler.nextDouble();
-        System.out.print("Digite o segundo numero:");
-        Scanner ler2 = new Scanner(System.in);
-        Double num2 = ler2.nextDouble();
-
-        return num1 * num2;
+    @Override
+    public float calcular(float x, float y){        
+        return x * y;
     }
 }
